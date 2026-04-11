@@ -346,12 +346,17 @@
         }
 
         function registrar() {
-            const u = document.getElementById('reg-user').value;
-            const p = document.getElementById('reg-pass').value;
-            if(!u || !p) return notify("⚠️ Completa los campos");
-            localStorage.setItem('neon_user_creds', JSON.stringify({user: u, pass: p}));
-            sfx.success(); notify("✅ Registrado"); toggleAuth();
-        }
+    // Añadimos .trim() para limpiar espacios
+    const u = document.getElementById('reg-user').value.trim();
+    const p = document.getElementById('reg-pass').value.trim();
+    
+    if(!u || !p) return notify("⚠️ Completa los campos");
+    
+    localStorage.setItem('neon_user_creds', JSON.stringify({user: u, pass: p}));
+    sfx.success(); 
+    notify("✅ Registrado"); 
+    toggleAuth();
+}
 
         function iniciarSesion() {
             const u = document.getElementById('log-user').value;
