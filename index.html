@@ -359,8 +359,8 @@
 }
 
         function iniciarSesion() {
-            const u = document.getElementById('log-user').value;
-            const p = document.getElementById('log-pass').value;
+            const u = document.getElementById('log-user').value.trim();
+            const p = document.getElementById('log-pass').value.trim();
             const creds = JSON.parse(localStorage.getItem('neon_user_creds'));
 
             if(creds && u === creds.user && p === creds.pass) {
